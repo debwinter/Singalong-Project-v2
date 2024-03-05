@@ -1,0 +1,70 @@
+﻿# macOS system files
+.DS_Store
+.AppleDouble
+.AppleDB
+.AppleDesktop
+.AppleInstaller
+.AppleTemporary
+.Trash
+.Trashes
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.VolumeIcon.icns
+.DocumentRevisions-V100
+
+# Visual Studio Code
+.vscode/
+
+# Compiled Object files
+*.suo
+*.cache
+*.log
+*.pdb
+
+# NuGet Packages
+*.nuget/
+*.nupkg
+*.dll
+*.exe
+*.dmg
+
+# User-specific files
+*.user
+*.suo
+*.userprefs
+*.lock
+appsettings.json
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2022 project files
+.vs2022/
+*.csproj.user
+*.vcxproj.user
+
+# Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Temporary files
+*.*~
+*.lock

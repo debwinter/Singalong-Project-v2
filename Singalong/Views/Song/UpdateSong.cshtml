@@ -1,0 +1,42 @@
+﻿@model Song
+
+<h2>Update Song</h2>
+<h5>#@Model.SongID: @Model.Title</h5>
+
+@using (Html.BeginForm("UpdateSongToDatabase", "Song", "Post"))
+{
+    <input asp-for="SongID" type="hidden" value="@Model.SongID" />
+
+    <label asp-for="Title" class="control-label">Title</label>
+    <input type="text" name="Title" class="form-control" value="@Model.Title" />
+
+    <label asp-for="Artist" class="control-label">Artist</label>
+    @if (Model.Artist == null)
+    {
+        <input type="text" name="Artist" class="form-control" value="@Model.Composer" />
+    }
+    else
+    {
+        <input type="text" name="Artist" class="form-control" value="@Model.Artist" />
+    }
+
+    <label asp-for="Composer" class="control-label">Composer</label>
+    <input type="text" name="Composer" class="form-control" value="@Model.Composer" />
+
+    <label asp-for="YouTube" class="control-label">YouTube Link</label>
+    <input type="text" name="YouTube" class="form-control" value="@Model.YouTube" />
+
+    <label asp-for="Spotify" class="control-label">Spotify Link</label>
+    <input type="text" name="Spotify" class="form-control" value="@Model.Spotify" />
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+}
+
+<p></p>
+<div style="display:block">
+    @using (Html.BeginForm("DeleteSong", "Song", "Post"))
+    {
+        <input asp-for="SongID" type="hidden" value="@Model.SongID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this song" />
+    }
+</div>

@@ -1,0 +1,25 @@
+﻿@model Song
+
+<h3>@Model.Title</h3>
+<h5>written by @Model.Composer</h5>
+@if (Model.Artist != null)
+{
+    <h5>popularized by @Model.Artist</h5>
+}
+
+<table class="table">
+    <tr>
+        <th>Section</th>
+        <th>Lyrics</th>
+    </tr>
+
+    @foreach (var lyric in @Model.Lyrics)
+    {
+        <tr>
+            <td>@lyric.Section</td>
+            <td style="white-space: pre-line;">
+                    @Html.Raw(lyric.Text)
+            </td>
+        </tr>
+    }
+</table>

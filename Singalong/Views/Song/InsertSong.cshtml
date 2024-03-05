@@ -1,0 +1,25 @@
+﻿@model Song
+
+<h2>Add a New Song</h2>
+
+@using (Html.BeginForm("InsertSongToDatabase", "Song", "Post"))
+{
+    <input asp-for="SongID" type="hidden" value="" />
+
+    <label asp-for="Title" class="control-label">Title</label>
+    <input type="text" name="Title" class="form-control" value="" />
+
+    <label asp-for="Composer" class="control-label">Composer</label>
+    <input type="text" name="Composer" class="form-control" value="" />
+
+    <label asp-for="Artist" class="control-label">Artist who popularized this song (if different from composer)</label>
+    <input type="text" name="Artist" class="form-control" value="" />
+
+    <label asp-for="YouTube" class="control-label">YouTube Link</label>
+    <input type="text" name="YouTube" class="form-control" value="" />
+
+    <label asp-for="Spotify" class="control-label">Spotify Link</label>
+    <input type="text" name="Spotify" class="form-control" value="" />
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+}
