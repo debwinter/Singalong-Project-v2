@@ -4,9 +4,9 @@
 <table class="table">
     <tr>
         <th></th>
+        <th></th>
         <th>Title</th>
         <th>Composer/Artist</th>
-        <th></th>
         <th></th>
         <th></th>
     </tr>
@@ -14,8 +14,9 @@
     @foreach (var song in @Model)
     {
         <tr>
-            <td><a href="/Song/UpdateSong/@song.SongID">@song.SongID</a></td>
-            <td>@song.Title</td>
+            <td><a href="/Song/UpdateSong/@song.SongID"><img src="~/Images/update.png" width="14" alt="Edit this song" /></a></td>
+            <td></td>
+            <td><a href="/Song/ViewLyrics/@song.SongID">@song.Title</a></td>
             @if (song.Artist == null)
             {
                 <td>@song.Composer</td>
@@ -24,9 +25,8 @@
             {
                 <td>@song.Artist</td>
             }
-            <td><a href="@song.Spotify"><img src="~/Images/spotify.png" width="22" alt="Listen on Spotify" /></a></td>
-            <td><a href="@song.YouTube"><img src="~/Images/youtube.png" width="22" alt="Watch on YouTube" /></a></td>
-            <td><a href="/Song/ViewLyrics/@song.SongID">lyrics</a></td>
+            <td><a href="@song.Spotify" target="_blank"><img src="~/Images/spotify.png" width="22" alt="Listen on Spotify" /></a></td>
+            <td><a href="@song.YouTube" target="_blank"><img src="~/Images/youtube.png" width="22" alt="Watch on YouTube" /></a></td>
         </tr>
     }
 </table>

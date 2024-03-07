@@ -17,3 +17,11 @@ body {
   margin-bottom: 60px;
 }
 
+.inline-form-group {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.select-width {
+    width: 200px;
+}

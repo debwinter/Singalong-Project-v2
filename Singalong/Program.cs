@@ -22,9 +22,10 @@ public class Program
 
         // need to talk about this ***
         builder.Services.AddScoped<SongRepo>();
+        builder.Services.AddScoped<LyricsRepo>();
 
-        // may be able to comment this out ***
-        builder.Services.AddTransient<ISongRepository, SongRepo>();
+        //// may be able to comment this out ***
+        //builder.Services.AddTransient<ISongRepository, SongRepo>();
 
         var app = builder.Build();
 

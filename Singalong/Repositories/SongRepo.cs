@@ -14,6 +14,14 @@ namespace Singalong.Repositories
             _conn = conn;
 		}
 
+        //public Song AssignSection(int songID)
+        //{
+        //    var sectionList = GetSections();
+        //    var song = new Song();
+        //    song.Sections = sectionList;
+        //    return song;
+        //}
+
         public void DeleteSong(Song song)
         {
             _conn.Execute("DELETE FROM SongParts WHERE SongID = @id;", new {id = song.SongID});
@@ -34,12 +42,17 @@ namespace Singalong.Repositories
 
         public IEnumerable<SongLyrics> GetLyrics(int songID)
         {
-            return _conn.Query<SongLyrics>("SELECT LyricID, Name AS Section, Text " +
+            return _conn.Query<SongLyrics>("SELECT SongPartID, sp.SectionID AS SectionID, l.LyricID AS LyricID, Name AS Section, Text " +
                 "FROM SongParts as sp " +
-                "LEFT JOIN Lyrics as l ON sp.LyricsID = l.LyricID " +
+                "LEFT JOIN Lyrics as l ON sp.LyricID = l.LyricID " +
                 "INNER JOIN Sections as sect ON l.SectionID = sect.SectionID " +
                 "WHERE l.SongID = @id;",
                 new { id = songID });
+        }
+
+        public IEnumerable<Section> GetSections()
+        {
+            return _conn.Query<Section>("SELECT * FROM Sections;");
         }
 
         public Song GetSong(int id)

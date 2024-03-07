@@ -1,0 +1,14 @@
+﻿@model SongLyrics
+
+<h5>#@Model.SongID: @Model.SongTitle</h5>
+<h3>Update Lyrics:</h3>
+
+@using (Html.BeginForm("UpdateLyricsToDatabase", "Song", "Post"))
+{
+    <input asp-for="SongID" type="hidden" value="@Model.SongID" />
+    <input asp-for="LyricID" type="hidden" value="@Model.LyricID" />
+
+    <textarea asp-for="Text" rows="4" cols="60"></textarea>
+
+    <input type="submit" value="Update Lyric" onclick="return-confirm('This will update all instances of this stanza in the song. Do you wish to continue?')" class="btn btn-primary" />
+}

@@ -11,6 +11,8 @@
     <tr>
         <th>Section</th>
         <th>Lyrics</th>
+        <th></th>
+        <th></th>
     </tr>
 
     @foreach (var lyric in @Model.Lyrics)
@@ -18,8 +20,16 @@
         <tr>
             <td>@lyric.Section</td>
             <td style="white-space: pre-line;">
-                    @Html.Raw(lyric.Text)
+                @Html.Raw(lyric.Text)
             </td>
+            <td><a href="/Song/UpdateLyrics/@lyric.SongPartID"><img src="~/Images/update.png" width="21" alt="Edit this paragraph"/></a></td>
+            <td><a href="/Song/DeleteLyrics/@lyric.SongPartID" onclick="return confirm('Are you sure?')"><img src="~/Images/delete.png" width="17" alt="Delete this paragraph"/></a></td>
         </tr>
     }
 </table>
+
+<p></p>
+
+<div style="display:block">
+    <a href="/Song/InsertLyrics/@Model.SongID">Add lyrics</a>
+</div>

@@ -10,6 +10,6 @@ namespace Singalong.Models
 		public string YouTube { get; set; }
 		public string Spotify { get; set; }
 		public IEnumerable<SongLyrics> Lyrics { get; set; }
-	}
+    }
 }
 

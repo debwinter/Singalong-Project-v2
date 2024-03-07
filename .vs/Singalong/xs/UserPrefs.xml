@@ -1,34 +1,39 @@
 ﻿<Properties StartupConfiguration="{F9829E21-5D43-4E60-B083-10C47DDC2FBA}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Singalong PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Singalong/Controllers/SongController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Singalong/Views/Song/InsertLyrics.cshtml">
     <Files>
-      <File FileName="Singalong/Repositories/SongRepo.cs" Line="42" Column="10" />
-      <File FileName="Singalong/Controllers/SongController.cs" Line="35" Column="1" />
-      <File FileName="Singalong/Views/Song/Index.cshtml" Line="1" Column="1" />
-      <File FileName="Singalong/Views/Song/ViewLyrics.cshtml" Line="18" Column="18" />
-      <File FileName="Singalong/Program.cs" Line="24" Column="48" />
+      <File FileName="Singalong/Repositories/SongRepo.cs" Line="55" Column="116" />
+      <File FileName="Singalong/Controllers/SongController.cs" />
+      <File FileName="Singalong/Views/Song/Index.cshtml" />
+      <File FileName="Singalong/Views/Song/ViewLyrics.cshtml" Line="30" Column="46" />
+      <File FileName="Singalong/Views/Song/UpdateSong.cshtml" />
+      <File FileName="Singalong/Repositories/ISongRepository.cs" Line="15" Column="47" />
+      <File FileName="Singalong/Views/Song/InsertLyrics.cshtml" Line="39" Column="1" />
+      <File FileName="Singalong/Models/Song.cs" Line="12" Column="54" />
+      <File FileName="Singalong/Models/SongLyrics.cs" Line="15" Column="16" />
+      <File FileName="Singalong/Views/Song/InsertSong.cshtml" Line="12" Column="30" />
+      <File FileName="Singalong/wwwroot/css/site.css" Line="22" Column="24" />
+      <File FileName="Singalong/Repositories/ILyricsRepository.cs" Line="10" Column="48" />
+      <File FileName="Singalong/Repositories/LyricsRepo.cs" Line="53" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Singalong">
+          <Option id="ShowAllFiles" value="True" />
+          <Node name="Singalong" expanded="True">
             <Node name="NuGet.Config files" expanded="True" />
-            <Node name="Singalong" expanded="True">
+            <Node name="Singalong">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
-              <Node name="Repositories" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Shared" expanded="True" />
-                <Node name="Song" expanded="True" />
+                <Node name="Song" expanded="True">
+                  <Node name="InsertLyrics.cshtml" selected="True" />
+                </Node>
               </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
+              <Node name="wwwroot">
+                <Node name="Images" expanded="True" />
                 <Node name="js" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
@@ -38,4 +43,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Singalong PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

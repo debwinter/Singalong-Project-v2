@@ -1,0 +1,56 @@
+﻿@model SongLyrics
+
+<h3>Addding lyrics to:</h3>
+<h5>#@Model.SongID: @Model.SongTitle</h5>
+
+@using (Html.BeginForm("InsertLyricsToDatabase", "Song", "Post"))
+{
+    <input asp-for="SongID" type="hidden" value="@Model.SongID" />
+
+    <div class="inline-form-group">
+        <label for="getSection"></label>
+        <select asp-for="SectionID" id="getSection" class="form-control" name="SectionID">
+            <option value="">Select a section</option> <!-- Adjusted default option -->
+            @foreach (var sect in Model.Sections)
+            {
+                <option value="@sect.SectionID">@sect.Name</option>
+            }
+        </select>
+
+        @*<label asp-for="Text"></label>
+        <input id="getLyric" rows="4" cols="60" name="Text" value="@Model.AllLyricsInThisSong.ElementAt(0).Text" />*@
+
+@*this one*@
+        <textarea asp-for="Text" id="getLyric" rows="4" cols="60"></textarea>
+    </div>
+
+    @*<p>test:</p>
+    <textarea name="Text" rows="4" cols="60">@Model.AllLyricsInThisSong.ElementAt(0).Text</textarea>
+    <textarea asp-for="Text" name="Text" rows="4" cols="60">@Model.AllLyricsInThisSong.ElementAt(0).Text</textarea>*@
+
+    <input type="submit" value="Add Lyric" class="btn btn-primary" />
+}
+
+@section Scripts{
+    <script>
+        // Serialize model data to JSON
+        var modelData = @Html.Raw(Json.Serialize(Model.AllLyricsInThisSong));
+
+        // Get references to fields by ID
+        var userSection = document.getElementById("getSection");
+        var userLyric = document.getElementById("getLyric");
+
+        // Add event listener to capture user input
+        userSection.addEventListener("change", function () {
+            var selectedSection = userSection.value;
+
+            // ...and perform action based on input
+            var selectedLyric = modelData.find(x => x.SectionID === selectedSection);
+            if (selectedLyric) {
+                userLyric.value = selectedLyric.Text;
+            } else {
+                userLyric.value = "";
+            }
+        });
+    </script>
+}
