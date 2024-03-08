@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<Song>
 
-<h2>Songs</h2>
-<table class="table">
+<h2>Songbook</h2>
+
+<input type="text" id="searchInput" placeholder="Search songs...">
+
+<table id="songTable" class="table">
     <tr>
         <th></th>
         <th></th>
@@ -34,3 +37,23 @@
 <div>
     <a href="@Url.Action("InsertSong", "Song")" class="btn btn-secondary">Add a New Song</a>
 </div>
+
+
+@section Scripts {
+    <script>$(document).ready(function () {
+            $('#searchInput').on('keyup', function () {
+                var query = $(this).val().toLowerCase();
+                console.log('Search query:', query);
+                $('#songTable tbody tr').each(function () {
+                    var title = $(this).find('td:nth-child(3) a').text().toLowerCase();
+                    var artistOrComposer = $(this).find('td:nth-child(4)').text().toLowerCase();
+                    console.log('Title:', title, 'Composer/Artist:', artistOrComposer);
+                    if (title.includes(query) || artistOrComposer.includes(query)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });</script>
+}
