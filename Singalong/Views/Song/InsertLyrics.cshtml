@@ -1,6 +1,6 @@
 ﻿@model SongLyrics
 
-<h3>Addding lyrics to:</h3>
+<h3>Adding lyrics to:</h3>
 <h5>#@Model.SongID: @Model.SongTitle</h5>
 
 @using (Html.BeginForm("InsertLyricsToDatabase", "Song", "Post"))
@@ -21,15 +21,21 @@
         <input id="getLyric" rows="4" cols="60" name="Text" value="@Model.AllLyricsInThisSong.ElementAt(0).Text" />*@
 
 @*this one*@
-        <textarea asp-for="Text" id="getLyric" rows="4" cols="60"></textarea>
+        <textarea asp-for="Text" id="getLyric" rows="8" cols="60"></textarea>
     </div>
 
     @*<p>test:</p>
     <textarea name="Text" rows="4" cols="60">@Model.AllLyricsInThisSong.ElementAt(0).Text</textarea>
     <textarea asp-for="Text" name="Text" rows="4" cols="60">@Model.AllLyricsInThisSong.ElementAt(0).Text</textarea>*@
-
-    <input type="submit" value="Add Lyric" class="btn btn-primary" />
+        
+        <div style="display: block">
+            <input type="submit" value="Add Lyric" class="btn btn-primary" />
+        </div>
 }
+
+<div style="text-align: right">
+    <a href="@Url.Action("ViewLyrics", "Song", new { id = Model.SongID })" class="btn btn-secondary">Back to Song</a>
+</div>
 
 @section Scripts{
     <script>

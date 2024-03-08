@@ -30,6 +30,10 @@
 
 <p></p>
 
-<div style="display:block">
-    <a href="/Song/InsertLyrics/@Model.SongID">Add lyrics</a>
+<div style="text-align: right">
+    <a href="@Url.Action("InsertLyrics", "Song", new { id = Model.SongID })" class="btn btn-secondary">Add lyrics</a>
+</div>
+
+<div>
+    <a href="@Url.Action("Index", "Song")" class="btn btn-primary">Back to Songbook</a>
 </div>

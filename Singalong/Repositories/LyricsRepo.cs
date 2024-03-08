@@ -27,8 +27,7 @@ namespace Singalong.Repositories
         {
             bool alreadyEntered = false;
             var fullDatabase = GetAllLyrics();
-            int lyricID;
-
+            
             foreach (var item in fullDatabase)
             {
                 if (item.Text == lyric.Text) alreadyEntered = true;
@@ -43,15 +42,11 @@ namespace Singalong.Repositories
                     sectionID = lyric.SectionID,
                     newText = lyric.Text
                 });
+            }
 
-                lyricID = _conn.QuerySingle<int>("SELECT LyricID FROM Lyrics " +
+            int lyricID = _conn.QuerySingle<int>("SELECT LyricID FROM Lyrics " +
                 "WHERE Text = @newText AND SongID = @song AND SectionID = @section;",
                 new { newText = lyric.Text, song = lyric.SongID, section = lyric.SectionID });
-            }
-            else
-            {
-                lyricID = lyric.LyricID;
-            }
 
             _conn.Execute("INSERT INTO SongParts (SongID, SectionID, LyricID) " +
                 "VALUES (@songID, @sectionID, @newLyricID);", new

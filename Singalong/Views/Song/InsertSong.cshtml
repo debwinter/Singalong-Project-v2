@@ -20,6 +20,10 @@
 
     <label asp-for="Spotify" class="control-label">Spotify Link</label>
     <input type="text" name="Spotify" class="form-control" value="" />
-
-    <input type="submit" value="Update" class="btn btn-primary" />
+    <p></p>
+    <input type="submit" value="Add Song" class="btn btn-primary" />
 }
+
+<div style="text-align: right">
+    <a href="@Url.Action("Index", "Song")" class="btn btn-secondary">Back to Songbook</a>
+</div>

@@ -8,7 +8,24 @@
     <input asp-for="SongID" type="hidden" value="@Model.SongID" />
     <input asp-for="LyricID" type="hidden" value="@Model.LyricID" />
 
-    <textarea asp-for="Text" rows="4" cols="60"></textarea>
+    <textarea asp-for="Text" rows="8" cols="60"></textarea>
 
-    <input type="submit" value="Update Lyric" onclick="return-confirm('This will update all instances of this stanza in the song. Do you wish to continue?')" class="btn btn-primary" />
+    <div style="display: block">
+        @if (Model.SectionID == 2)
+        {
+            <input type="submit" value="Update Lyric" onclick="return-confirm('This will update ALL choruses in this song. Do you wish to continue?')" class="btn btn-primary" />
+        }
+        else if (Model.SectionID == 4)
+        {
+            <input type="submit" value="Update Lyric" onclick="return-confirm('This will update ALL pre-choruses in this song. Do you wish to continue?')" class="btn btn-primary" />
+        }
+        else
+        {
+            <input type="submit" value="Update Lyric" class="btn btn-primary" />
+        }
+    </div>
 }
+
+<div style="text-align: right">
+    <a href="@Url.Action("ViewLyrics", "Song", new { id = Model.SongID })" class="btn btn-secondary">Back to Song</a>
+</div>

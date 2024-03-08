@@ -32,7 +32,7 @@ namespace Singalong.Repositories
 
         public IEnumerable<Song> GetAllSongs()
         {
-            var allSongs = _conn.Query<Song>("SELECT * FROM Songs;");
+            var allSongs = _conn.Query<Song>("SELECT * FROM Songs ORDER BY Title;");
             foreach (var song in allSongs)
             {
                 song.Lyrics = GetLyrics(song.SongID);
